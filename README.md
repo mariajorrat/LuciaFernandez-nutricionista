@@ -26,7 +26,8 @@ La página está diseñada para convertir visitantes en pacientes, especialmente
 Web-nutricionista/
 ├── index.html          # Versión en Español
 ├── index-en.html       # English Version
-└── README.md          # Este archivo
+├── README.md          # Documentación en Español
+└── README-en.md       # English Documentation
 ```
 
 ## 🎯 Secciones de la Página
@@ -265,3 +266,7 @@ Esta landing page fue creada especialmente para Lucía Fernández.
 **Versión**: 1.0  
 **Última actualización**: 4 de marzo de 2026  
 **Creado para**: Lucía Fernández - Nutricionista Clínica y Deportiva
+
+---
+
+**📖 Available in English**: See [README-en.md](README-en.md) for the English version of this documentation.
