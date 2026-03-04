@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucía Fernández - Nutricionista Clínica y Deportiva</title>
+    <title>Lucía Fernández - Clinical and Sports Nutritionist</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -164,6 +164,18 @@
             transition: all 0.3s ease;
         }
 
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         .theme-toggle {
             background: none;
             border: none;
@@ -178,40 +190,6 @@
 
         .theme-toggle:hover {
             transform: scale(1.1);
-        }
-
-        /* ============================================
-           SELECTOR DE IDIOMAS
-           ============================================ */
-
-        .language-switcher {
-            display: inline-flex;
-            gap: 0.5rem;
-            padding: 0.5rem;
-            background: var(--bg-secondary);
-            border-radius: 4px;
-            margin-left: 1rem;
-        }
-
-        .language-switcher a {
-            padding: 0.25rem 0.75rem;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .language-switcher a.active {
-            background: var(--primary-green);
-            color: var(--white);
-        }
-
-        .language-switcher a:hover:not(.active) {
-            background: var(--primary-green);
-            color: var(--white);
-            opacity: 0.8;
         }
 
         /* ============================================
@@ -279,16 +257,34 @@
             border-bottom: none;
         }
 
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
+        .language-switcher {
+            display: inline-flex;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            margin-left: 1rem;
         }
 
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
+        .language-switcher a {
+            padding: 0.25rem 0.75rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
 
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+        .language-switcher a.active {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .language-switcher a:hover:not(.active) {
+            background: var(--primary-green);
+            color: var(--white);
+            opacity: 0.8;
         }
 
         /* ============================================
@@ -381,22 +377,22 @@
            SECCIÓN SOBRE LUCÍA
            ============================================ */
 
-        #sobre {
+        #about {
             background: var(--bg-primary);
         }
 
-        .sobre-content {
+        .about-content {
             padding: 3rem 0;
         }
 
-        .sobre-content h2 {
+        .about-content h2 {
             text-align: center;
             margin-bottom: 2rem;
-                opacity: 0;
+            opacity: 0;
             animation: fadeInOnScroll 0.8s ease forwards;
         }
 
-        .sobre-intro {
+        .about-intro {
             max-width: 750px;
             margin: 0 auto 2rem;
             font-size: 1.05rem;
@@ -455,11 +451,11 @@
            SECCIÓN SERVICIOS
            ============================================ */
 
-        #servicios {
+        #services {
             background: linear-gradient(135deg, rgba(168, 197, 184, 0.1) 0%, var(--bg-secondary) 100%);
         }
 
-        html.dark-mode #servicios {
+        html.dark-mode #services {
             background: linear-gradient(135deg, rgba(107, 148, 120, 0.1) 0%, #1a1a1a 100%);
         }
 
@@ -543,11 +539,11 @@
            SECCIÓN PROCESO
            ============================================ */
 
-        #proceso {
+        #process {
             background: var(--bg-primary);
         }
 
-        .proceso-content h2 {
+        .process-content h2 {
             text-align: center;
             margin-bottom: 3rem;
         }
@@ -571,11 +567,11 @@
             animation-delay: 0.2s;
         }
 
-        .process-step:nth-child(2) {
+        .process-step:nth-child(3) {
             animation-delay: 0.4s;
         }
 
-        .process-step:nth-child(3) {
+        .process-step:nth-child(5) {
             animation-delay: 0.6s;
         }
 
@@ -615,18 +611,18 @@
            SECCIÓN CONTACTO
            ============================================ */
 
-        #contacto {
+        #contact {
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
             color: var(--white);
             text-align: center;
             transition: background 0.3s ease;
         }
 
-        html.dark-mode #contacto {
+        html.dark-mode #contact {
             background: linear-gradient(135deg, #4a6d59 0%, #5a7d6a 100%);
         }
 
-        #contacto h2 {
+        #contact h2 {
             color: var(--white);
         }
 
@@ -791,6 +787,10 @@
             .container {
                 padding: 0 1rem;
             }
+
+            .language-switcher {
+                margin-left: 0.5rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -823,7 +823,7 @@
                 font-size: 0.95rem;
             }
 
-            .sobre-intro {
+            .about-intro {
                 font-size: 0.95rem;
             }
 
@@ -870,11 +870,16 @@
             .contact-method::before {
                 font-size: 1.2rem;
             }
-        }
 
-        /* ============================================
-           ANIMACIÓN SMOOTH SCROLL
-           ============================================ */
+            .language-switcher {
+                gap: 0.25rem;
+            }
+
+            .language-switcher a {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
 
         .smooth-scroll {
             scroll-behavior: smooth;
@@ -891,8 +896,8 @@
                 <div class="logo">Lucía Fernández</div>
                 <div style="display: flex; gap: 1rem; align-items: center;">
                     <div class="language-switcher">
-                        <a href="index.html" class="active">ES</a>
-                        <a href="index-en.html">EN</a>
+                        <a href="index.html">ES</a>
+                        <a href="index-en.html" class="active">EN</a>
                     </div>
                     <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
                         <span>🌙</span>
@@ -907,13 +912,13 @@
         </div>
     </header>
 
-    <!-- Menú Hamburguesa -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#sobre">Sobre Lucía</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#proceso">Cómo Trabajamos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#about">About Lucía</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">How We Work</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
@@ -924,47 +929,47 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Lucía Fernández</h1>
-                <p class="hero-subtitle">Nutricionista Clínica y Deportiva</p>
+                <p class="hero-subtitle">Clinical and Sports Nutritionist</p>
                 <p class="hero-description">
-                    Te ayudo a alcanzar tus objetivos de salud mediante un plan de alimentación personalizado, diseñado especialmente para vos. Trabajamos juntas de forma presencial o por videollamada, desde Yerba Buena, Tucumán.
+                    I help you achieve your health goals through a personalized nutrition plan, designed especially for you. We work together in-person or via video call, from Yerba Buena, Tucumán.
                 </p>
-                <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="cta-button">Consulta por WhatsApp</a>
+                <a href="https://wa.me/+5493816000000?text=Hello%20Lucía,%20I%20would%20like%20to%20schedule%20a%20consultation" class="cta-button">Contact via WhatsApp</a>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-         SECCIÓN SOBRE LUCÍA
+         ABOUT SECTION
          ============================================ -->
-    <section id="sobre">
+    <section id="about">
         <div class="container">
-            <div class="sobre-content">
-                <h2>Sobre Lucía</h2>
-                <div class="sobre-intro">
+            <div class="about-content">
+                <h2>About Lucía</h2>
+                <div class="about-intro">
                     <p>
-                        Soy nutricionista clínica y deportiva con una pasión genuina por acompañar a mis pacientes en su camino hacia el bienestar. Mi enfoque es humanizado y flexible: entiendo que cada cuerpo es diferente y que no existen dietas mágicas, sino estrategias personalizadas que se adaptan a tu vida.
+                        I'm a clinical and sports nutritionist with a genuine passion for accompanying my patients on their path to wellness. My approach is personalized and flexible: I understand that every body is different and there are no magical diets, just personalized strategies that adapt to your life.
                     </p>
                     <p>
-                        Creo en la alimentación consciente, en celebrar los pequeños avances y en construir hábitos que duren en el tiempo. No vengo a juzgarte por lo que comés, sino a empoderarte con herramientas que funcionen para vos.
+                        I believe in conscious eating, celebrating small victories, and building habits that last over time. I'm not here to judge what you eat, but to empower you with tools that work for you.
                     </p>
                 </div>
 
                 <div class="highlights">
                     <div class="highlight-item">
                         <div class="highlight-number">10+</div>
-                        <div class="highlight-text">Años de experiencia</div>
+                        <div class="highlight-text">Years of Experience</div>
                     </div>
                     <div class="highlight-item">
                         <div class="highlight-number">500+</div>
-                        <div class="highlight-text">Pacientes acompañados</div>
+                        <div class="highlight-text">Patients Helped</div>
                     </div>
                     <div class="highlight-item">
                         <div class="highlight-number">100%</div>
-                        <div class="highlight-text">Dedicación personalizada</div>
+                        <div class="highlight-text">Personalized Attention</div>
                     </div>
                     <div class="highlight-item">
                         <div class="highlight-number">24/7</div>
-                        <div class="highlight-text">Disponible para vos</div>
+                        <div class="highlight-text">Available for You</div>
                     </div>
                 </div>
             </div>
@@ -972,44 +977,44 @@
     </section>
 
     <!-- ============================================
-         SECCIÓN SERVICIOS
+         SERVICES SECTION
          ============================================ -->
-    <section id="servicios">
+    <section id="services">
         <div class="container">
-            <h2 style="text-align: center;">Mis Servicios</h2>
+            <h2 style="text-align: center;">My Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"></div>
-                    <h3>Consulta Presencial</h3>
-                    <p>Te atiendo en Yerba Buena para una evaluación completa, seguimiento detallado y apoyo cara a cara.</p>
+                    <h3>In-Person Consultation</h3>
+                    <p>I see you in Yerba Buena for a complete assessment, detailed follow-up, and face-to-face support.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"></div>
-                    <h3>Consulta Online</h3>
-                    <p>Videoconferencia flexible desde cualquier lugar. Ideal si preferís comodidad o estás fuera de Tucumán.</p>
+                    <h3>Online Consultation</h3>
+                    <p>Video conference with flexibility from anywhere. Ideal if you prefer convenience or are out of Tucumán.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"></div>
-                    <h3>Plan Personalizado</h3>
-                    <p>Plan de alimentación diseñado especialmente para vos, con seguimiento continuo y ajustes según tu progreso.</p>
+                    <h3>Personalized Plan</h3>
+                    <p>Custom nutrition plan designed especially for you, with continuous follow-up and adjustments based on your progress.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-         SECCIÓN PROCESO
+         PROCESS SECTION
          ============================================ -->
-    <section id="proceso">
+    <section id="process">
         <div class="container">
-            <div class="proceso-content">
-                <h2>Cómo Trabajamos</h2>
+            <div class="process-content">
+                <h2>How We Work</h2>
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h3>Evaluación Inicial</h3>
-                            <p>Nos conocemos, conversamos sobre tus objetivos, tu historial de salud y tu relación con la comida. Así entiendo bien qué necesitás.</p>
+                            <h3>Initial Assessment</h3>
+                            <p>We meet, chat about your goals, your health history, and your relationship with food. This way I understand what you really need.</p>
                         </div>
                     </div>
 
@@ -1018,8 +1023,8 @@
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3>Plan Personalizado</h3>
-                            <p>Diseño un plan de alimentación realista, flexible y adaptado a tu estilo de vida. No dietas restrictivas, sino estrategias que funcionan.</p>
+                            <h3>Personalized Plan</h3>
+                            <p>I design a realistic, flexible plan adapted to your lifestyle. No restrictive diets, just strategies that work.</p>
                         </div>
                     </div>
 
@@ -1028,8 +1033,8 @@
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h3>Seguimiento y Ajuste</h3>
-                            <p>Nos encontramos regularmente para revisar tu progreso, celebrar tus logros y ajustar el plan si es necesario.</p>
+                            <h3>Follow-up and Adjustment</h3>
+                            <p>We meet regularly to review your progress, celebrate your wins, and adjust the plan if needed.</p>
                         </div>
                     </div>
                 </div>
@@ -1038,16 +1043,16 @@
     </section>
 
     <!-- ============================================
-         SECCIÓN CONTACTO
+         CONTACT SECTION
          ============================================ -->
-    <section id="contacto">
+    <section id="contact">
         <div class="container">
-            <h2>Conectemos</h2>
+            <h2>Let's Connect</h2>
             <p class="contact-intro">
-                ¿Listo para empezar tu cambio? Contactame a través del medio que prefieras y agendamos tu consulta inicial.
+                Ready to start your journey? Contact me through your preferred method and we'll schedule your initial consultation.
             </p>
             <div class="contact-methods">
-                <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="contact-method">
+                <a href="https://wa.me/+5493816000000?text=Hello%20Lucía,%20I%20would%20like%20to%20schedule%20a%20consultation" class="contact-method">
                     WhatsApp
                 </a>
                 <a href="https://instagram.com/luciafernandez.nutricion" target="_blank" class="contact-method">
@@ -1064,7 +1069,7 @@
          FOOTER
          ============================================ -->
     <footer>
-        <p>&copy; 2026 Lucía Fernández. Nutricionista Clínica y Deportiva</p>
+        <p>&copy; 2026 Lucía Fernández. Clinical and Sports Nutritionist</p>
         <p>Yerba Buena, Tucumán, Argentina</p>
     </footer>
 
@@ -1072,14 +1077,14 @@
          SCRIPT - INTERACTIVIDAD Y ANIMACIONES
          ============================================ -->
     <script>
-        // Elementos del DOM
+        // DOM Elements
         const navToggle = document.querySelector('.nav-toggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const themeToggle = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
         const contactLinks = document.querySelectorAll('a[href^="#"]');
 
-        // Inicializar tema desde localStorage o preferencia del sistema
+        // Initialize theme from localStorage or system preference
         function initTheme() {
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -1093,19 +1098,19 @@
             }
         }
 
-        // Función para cerrar menú
+        // Close menu function
         function closeMenu() {
             navToggle.classList.remove('active');
             mobileMenu.classList.remove('active');
         }
 
-        // Función para abrir/cerrar menú
+        // Toggle menu function
         function toggleMenu() {
             navToggle.classList.toggle('active');
             mobileMenu.classList.toggle('active');
         }
 
-        // Toggle del tema oscuro/claro
+        // Toggle dark/light theme
         themeToggle.addEventListener('click', function() {
             htmlElement.classList.toggle('dark-mode');
             const isDarkMode = htmlElement.classList.contains('dark-mode');
@@ -1113,20 +1118,20 @@
             themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
         });
 
-        // Inicializar tema al cargar la página
+        // Initialize theme on page load
         initTheme();
 
-        // Toggle del menú de navegación
+        // Toggle navigation menu
         navToggle.addEventListener('click', toggleMenu);
 
-        // Cerrar menú cuando se hace click en un link
+        // Close menu when clicking on a link
         contactLinks.forEach(link => {
             link.addEventListener('click', function() {
                 closeMenu();
             });
         });
 
-        // Cerrar menú cuando se hace click fuera del menú
+        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             const isClickInsideMenu = mobileMenu.contains(event.target);
             const isClickOnToggle = navToggle.contains(event.target);
@@ -1136,7 +1141,7 @@
             }
         });
 
-        // Intersection Observer para animaciones al scroll
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1152,14 +1157,14 @@
             });
         }, observerOptions);
 
-        // Observar elementos con animación
+        // Observe animated elements
         document.querySelectorAll(
-            '.sobre-content h2, .highlight-item, .service-card, .process-step, .contact-method'
+            '.about-content h2, .highlight-item, .service-card, .process-step, .contact-method'
         ).forEach(el => {
             observer.observe(el);
         });
 
-        // Smooth scroll para enlaces internos
+        // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1178,11 +1183,10 @@
             });
         });
 
-        // Animación de scroll progresivo para elementos
+        // Parallax effect on scroll
         window.addEventListener('scroll', function() {
             const scrollY = window.pageYOffset;
             
-            // Efecto parallax sutil en hero
             const hero = document.querySelector('.hero');
             if (scrollY < window.innerHeight) {
                 hero.style.backgroundPosition = `center ${scrollY * 0.5}px`;

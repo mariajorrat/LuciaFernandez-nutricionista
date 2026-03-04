@@ -24,7 +24,8 @@ La página está diseñada para convertir visitantes en pacientes, especialmente
 
 ```
 Web-nutricionista/
-├── index.html          # Archivo principal (HTML, CSS y JS integrados)
+├── index.html          # Versión en Español
+├── index-en.html       # English Version
 └── README.md          # Este archivo
 ```
 
@@ -53,6 +54,15 @@ Web-nutricionista/
 - WhatsApp (con enlace directo)
 - Instagram
 - Email
+
+## 🌐 Idiomas Soportados
+
+La página está disponible en dos idiomas:
+
+- **Español**: `index.html`
+- **English**: `index-en.html`
+
+Ambas versiones tienen un selector de idioma en el header (ES/EN) que permite cambiar entre ellas de manera fácil. Los datos de contacto y estructura son idénticos, solo cambia el contenido del texto.
 
 ## 🚀 Cómo Usar
 
