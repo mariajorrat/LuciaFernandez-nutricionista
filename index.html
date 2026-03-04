@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía Fernández - Nutricionista Clínica y Deportiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           RESET Y VARIABLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #5a8a6f;
+            --light-green: #7ca88d;
+            --soft-green: #a8c5b8;
+            --cream: #f5f1e8;
+            --white: #ffffff;
+            --dark-text: #2d3436;
+            --light-text: #646464;
+            --accent: #a8c5b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f1e8;
+            --text-primary: #2d3436;
+            --text-secondary: #646464;
+            --border-color: rgba(90, 138, 111, 0.1);
+        }
+
+        html.dark-mode {
+            --primary-green: #7ca88d;
+            --light-green: #9bb5a3;
+            --soft-green: #6b9478;
+            --cream: #1a1a1a;
+            --white: #0d0d0d;
+            --dark-text: #e8e8e8;
+            --light-text: #b0b0b0;
+            --accent: #6b9478;
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --border-color: rgba(122, 168, 141, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ============================================
+           TIPOGRAFÍA Y ELEMENTOS GENERALES
+           ============================================ */
+
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* ============================================
+           LAYOUT Y ESTRUCTURA GENERAL
+           ============================================ */
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* ============================================
+           HEADER Y NAVEGACIÓN
+           ============================================ */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--border-color);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        html.dark-mode header {
+            background: rgba(13, 13, 13, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            color: var(--primary-green);
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: none;
+            list-style: none;
+        }
+
+        .nav-toggle {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* ============================================
+           MENÚ HAMBURGUESA
+           ============================================ */
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 999;
+            animation: slideDown 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        html.dark-mode .mobile-menu {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-menu li {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--bg-secondary);
+            padding-left: 2rem;
+            color: var(--primary-green);
+        }
+
+        .mobile-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+
+        .hero {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(168, 197, 184, 0.15) 100%);
+            padding-top: 120px;
+            padding-bottom: 4rem;
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        html.dark-mode .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, rgba(107, 148, 120, 0.1) 100%);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            animation: slideInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: slideInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease 0.6s backwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            animation: slideInUp 0.8s ease 0.8s backwards;
+        }
+
+        .cta-button:hover {
+            background: var(--light-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(90, 138, 111, 0.2);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           SECCIÓN SOBRE LUCÍA
+           ============================================ */
+
+        #sobre {
+            background: var(--bg-primary);
+        }
+
+        .sobre-content {
+            padding: 3rem 0;
+        }
+
+        .sobre-content h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+                opacity: 0;
+            animation: fadeInOnScroll 0.8s ease forwards;
+        }
+
+        .sobre-intro {
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--primary-green);
+            opacity: 0;
+            animation: fadeInOnScroll 0.8s ease forwards;
+            transition: background-color 0.3s ease;
+        }
+
+        .highlight-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .highlight-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .highlight-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .highlight-item:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .highlight-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            font-family: 'Lora', serif;
+        }
+
+        .highlight-text {
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================
+           SECCIÓN SERVICIOS
+           ============================================ */
+
+        #servicios {
+            background: linear-gradient(135deg, rgba(168, 197, 184, 0.1) 0%, var(--bg-secondary) 100%);
+        }
+
+        html.dark-mode #servicios {
+            background: linear-gradient(135deg, rgba(107, 148, 120, 0.1) 0%, #1a1a1a 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid var(--primary-green);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInOnScroll 0.8s ease forwards;
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(90, 138, 111, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 60px;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-icon::before {
+            font-size: 1.5rem;
+        }
+
+        .service-card:nth-child(1) .service-icon::before {
+            content: "🏥";
+        }
+
+        .service-card:nth-child(2) .service-icon::before {
+            content: "💻";
+        }
+
+        .service-card:nth-child(3) .service-icon::before {
+            content: "📋";
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           SECCIÓN PROCESO
+           ============================================ */
+
+        #proceso {
+            background: var(--bg-primary);
+        }
+
+        .proceso-content h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeInOnScroll 0.8s ease forwards;
+        }
+
+        .process-step:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .process-step:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .process-step:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Lora', serif;
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        .step-divider {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--soft-green);
+            margin-bottom: 1rem;
+        }
+
+        /* ============================================
+           SECCIÓN CONTACTO
+           ============================================ */
+
+        #contacto {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            color: var(--white);
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        html.dark-mode #contacto {
+            background: linear-gradient(135deg, #4a6d59 0%, #5a7d6a 100%);
+        }
+
+        #contacto h2 {
+            color: var(--white);
+        }
+
+        .contact-intro {
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-method {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            animation: fadeInOnScroll 0.8s ease forwards;
+        }
+
+        .contact-method:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .contact-method:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .contact-method:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-method::before {
+            font-size: 1.3rem;
+        }
+
+        .contact-method:nth-child(1)::before {
+            content: "💬";
+        }
+
+        .contact-method:nth-child(2)::before {
+            content: "📷";
+        }
+
+        .contact-method:nth-child(3)::before {
+            content: "✉️";
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        footer {
+            background: #1a1a1a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        html.dark-mode footer {
+            background: #0a0a0a;
+        }
+
+        footer p {
+            color: var(--white);
+            margin: 0.5rem 0;
+        }
+
+        /* ============================================
+           ANIMACIÓN AL SCROLL
+           ============================================ */
+
+        @keyframes fadeInOnScroll {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            section {
+                padding: 2rem 0;
+            }
+
+            .hero {
+                padding-top: 100px;
+                padding-bottom: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .process-steps {
+                gap: 2rem;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 1.5rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                padding: 0.85rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .sobre-intro {
+                font-size: 0.95rem;
+            }
+
+            .highlight-item {
+                padding: 1.25rem;
+            }
+
+            .highlight-number {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 1.25rem;
+            }
+
+            .service-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .process-step {
+                gap: 1rem;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .step-content h3 {
+                font-size: 1rem;
+            }
+
+            .step-content p {
+                font-size: 0.9rem;
+            }
+
+            .contact-method {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .contact-method::before {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ============================================
+           ANIMACIÓN SMOOTH SCROLL
+           ============================================ */
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER Y NAVEGACIÓN
+         ============================================ -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Lucía Fernández</div>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+                        <span>🌙</span>
+                    </button>
+                    <button class="nav-toggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menú Hamburguesa -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#sobre">Sobre Lucía</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#proceso">Cómo Trabajamos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Lucía Fernández</h1>
+                <p class="hero-subtitle">Nutricionista Clínica y Deportiva</p>
+                <p class="hero-description">
+                    Te ayudo a alcanzar tus objetivos de salud mediante un plan de alimentación personalizado, diseñado especialmente para vos. Trabajamos juntas de forma presencial o por videollamada, desde Yerba Buena, Tucumán.
+                </p>
+                <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="cta-button">Consulta por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN SOBRE LUCÍA
+         ============================================ -->
+    <section id="sobre">
+        <div class="container">
+            <div class="sobre-content">
+                <h2>Sobre Lucía</h2>
+                <div class="sobre-intro">
+                    <p>
+                        Soy nutricionista clínica y deportiva con una pasión genuina por acompañar a mis pacientes en su camino hacia el bienestar. Mi enfoque es humanizado y flexible: entiendo que cada cuerpo es diferente y que no existen dietas mágicas, sino estrategias personalizadas que se adaptan a tu vida.
+                    </p>
+                    <p>
+                        Creo en la alimentación consciente, en celebrar los pequeños avances y en construir hábitos que duren en el tiempo. No vengo a juzgarte por lo que comés, sino a empoderarte con herramientas que funcionen para vos.
+                    </p>
+                </div>
+
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-number">10+</div>
+                        <div class="highlight-text">Años de experiencia</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">500+</div>
+                        <div class="highlight-text">Pacientes acompañados</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">100%</div>
+                        <div class="highlight-text">Dedicación personalizada</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-number">24/7</div>
+                        <div class="highlight-text">Disponible para vos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN SERVICIOS
+         ============================================ -->
+    <section id="servicios">
+        <div class="container">
+            <h2 style="text-align: center;">Mis Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Consulta Presencial</h3>
+                    <p>Te atiendo en Yerba Buena para una evaluación completa, seguimiento detallado y apoyo cara a cara.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Consulta Online</h3>
+                    <p>Videoconferencia flexible desde cualquier lugar. Ideal si preferís comodidad o estás fuera de Tucumán.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Plan Personalizado</h3>
+                    <p>Plan de alimentación diseñado especialmente para vos, con seguimiento continuo y ajustes según tu progreso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN PROCESO
+         ============================================ -->
+    <section id="proceso">
+        <div class="container">
+            <div class="proceso-content">
+                <h2>Cómo Trabajamos</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Evaluación Inicial</h3>
+                            <p>Nos conocemos, conversamos sobre tus objetivos, tu historial de salud y tu relación con la comida. Así entiendo bien qué necesitás.</p>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; color: var(--soft-green); font-size: 1.5rem; margin: -1rem 0;">↓</div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Plan Personalizado</h3>
+                            <p>Diseño un plan de alimentación realista, flexible y adaptado a tu estilo de vida. No dietas restrictivas, sino estrategias que funcionan.</p>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; color: var(--soft-green); font-size: 1.5rem; margin: -1rem 0;">↓</div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Seguimiento y Ajuste</h3>
+                            <p>Nos encontramos regularmente para revisar tu progreso, celebrar tus logros y ajustar el plan si es necesario.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN CONTACTO
+         ============================================ -->
+    <section id="contacto">
+        <div class="container">
+            <h2>Conectemos</h2>
+            <p class="contact-intro">
+                ¿Listo para empezar tu cambio? Contactame a través del medio que prefieras y agendamos tu consulta inicial.
+            </p>
+            <div class="contact-methods">
+                <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="contact-method">
+                    WhatsApp
+                </a>
+                <a href="https://instagram.com/luciafernandez.nutricion" target="_blank" class="contact-method">
+                    Instagram
+                </a>
+                <a href="mailto:lucia@nutricionista.com" class="contact-method">
+                    Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <p>&copy; 2026 Lucía Fernández. Nutricionista Clínica y Deportiva</p>
+        <p>Yerba Buena, Tucumán, Argentina</p>
+    </footer>
+
+    <!-- ============================================
+         SCRIPT - INTERACTIVIDAD Y ANIMACIONES
+         ============================================ -->
+    <script>
+        // Elementos del DOM
+        const navToggle = document.querySelector('.nav-toggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const contactLinks = document.querySelectorAll('a[href^="#"]');
+
+        // Inicializar tema desde localStorage o preferencia del sistema
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                htmlElement.classList.add('dark-mode');
+                themeToggle.textContent = '☀️';
+            } else {
+                htmlElement.classList.remove('dark-mode');
+                themeToggle.textContent = '🌙';
+            }
+        }
+
+        // Función para cerrar menú
+        function closeMenu() {
+            navToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Función para abrir/cerrar menú
+        function toggleMenu() {
+            navToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Toggle del tema oscuro/claro
+        themeToggle.addEventListener('click', function() {
+            htmlElement.classList.toggle('dark-mode');
+            const isDarkMode = htmlElement.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+        });
+
+        // Inicializar tema al cargar la página
+        initTheme();
+
+        // Toggle del menú de navegación
+        navToggle.addEventListener('click', toggleMenu);
+
+        // Cerrar menú cuando se hace click en un link
+        contactLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+
+        // Cerrar menú cuando se hace click fuera del menú
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = navToggle.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Intersection Observer para animaciones al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.animation = entry.target.style.animation;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos con animación
+        document.querySelectorAll(
+            '.sobre-content h2, .highlight-item, .service-card, .process-step, .contact-method'
+        ).forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animación de scroll progresivo para elementos
+        window.addEventListener('scroll', function() {
+            const scrollY = window.pageYOffset;
+            
+            // Efecto parallax sutil en hero
+            const hero = document.querySelector('.hero');
+            if (scrollY < window.innerHeight) {
+                hero.style.backgroundPosition = `center ${scrollY * 0.5}px`;
+            }
+        });
+    </script>
+</body>
+</html>
