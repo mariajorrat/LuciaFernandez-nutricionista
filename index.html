@@ -4,48 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucía Fernández - Nutricionista Clínica y Deportiva</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           RESET Y VARIABLES
-           ============================================ */
+        :root {
+            --cream: #faf7f2;
+            --cream2: #f2ede4;
+            --cream3: #e8e0d4;
+            --green-deep: #2d4a3e;
+            --green-soft: #5a8a74;
+            --green-pale: #c8ddd6;
+            --green-tint: #eef4f1;
+            --text: #2a2a27;
+            --text-soft: #3f433f;
+            --text-muted: #5d635d;
+            --border: #ddd8cc;
+            --white: #ffffff;
+            --shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        html.dark-mode {
+            --cream: #161c1a;
+            --cream2: #0f1312;
+            --cream3: #27332e;
+            --green-deep: #d8e9e2;
+            --green-soft: #7fb09a;
+            --green-pale: #456a5a;
+            --green-tint: #1f2824;
+            --text: #edf2ef;
+            --text-soft: #d0ddd7;
+            --text-muted: #b3c4bd;
+            --border: #31423b;
+            --white: #1a2220;
+            --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --primary-green: #5a8a6f;
-            --light-green: #7ca88d;
-            --soft-green: #a8c5b8;
-            --cream: #f5f1e8;
-            --white: #ffffff;
-            --dark-text: #2d3436;
-            --light-text: #646464;
-            --accent: #a8c5b8;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f5f1e8;
-            --text-primary: #2d3436;
-            --text-secondary: #646464;
-            --border-color: rgba(90, 138, 111, 0.1);
-        }
-
-        html.dark-mode {
-            --primary-green: #7ca88d;
-            --light-green: #9bb5a3;
-            --soft-green: #6b9478;
-            --cream: #1a1a1a;
-            --white: #0d0d0d;
-            --dark-text: #e8e8e8;
-            --light-text: #b0b0b0;
-            --accent: #6b9478;
-            --bg-primary: #0d0d0d;
-            --bg-secondary: #1a1a1a;
-            --text-primary: #e8e8e8;
-            --text-secondary: #b0b0b0;
-            --border-color: rgba(122, 168, 141, 0.2);
         }
 
         html {
@@ -53,1141 +49,712 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-primary);
-            line-height: 1.6;
-            background-color: var(--bg-primary);
-            overflow-x: hidden;
+            background: var(--cream2);
+            font-family: 'Jost', sans-serif;
+            color: var(--text);
+            font-size: 16px;
+            min-height: 100vh;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* ============================================
-           TIPOGRAFÍA Y ELEMENTOS GENERALES
-           ============================================ */
-
-        h1, h2, h3, h4 {
-            font-family: 'Lora', serif;
-            font-weight: 600;
-            line-height: 1.2;
-            color: var(--text-primary);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        /* ============================================
-           LAYOUT Y ESTRUCTURA GENERAL
-           ============================================ */
-
-        .container {
-            max-width: 900px;
+        .site {
+            width: min(100%, 1120px);
             margin: 0 auto;
-            padding: 0 1.5rem;
+            background: var(--cream);
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease;
         }
 
-        section {
-            padding: 4rem 0;
-        }
-
-        /* ============================================
-           HEADER Y NAVEGACIÓN
-           ============================================ */
-
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px var(--border-color);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        html.dark-mode header {
-            background: rgba(13, 13, 13, 0.95);
-        }
-
-        nav {
+        .navbar {
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
-            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        .logo {
-            font-size: 1.3rem;
-            font-family: 'Lora', serif;
-            font-weight: 600;
-            color: var(--primary-green);
-            letter-spacing: 0.5px;
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            font-weight: 400;
+            color: var(--green-deep);
+            letter-spacing: 0.04em;
         }
 
-        nav ul {
-            display: none;
-            list-style: none;
-        }
-
-        .nav-toggle {
+        .nav-right {
             display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background: var(--primary-green);
-            transition: all 0.3s ease;
+            align-items: center;
+            gap: 12px;
         }
 
         .theme-toggle {
-            background: none;
-            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--text-muted);
+            font-size: 15px;
             cursor: pointer;
-            font-size: 1.3rem;
-            padding: 0.5rem;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* ============================================
-           SELECTOR DE IDIOMAS
-           ============================================ */
-
-        .language-switcher {
-            display: inline-flex;
-            gap: 0.5rem;
-            padding: 0.5rem;
-            background: var(--bg-secondary);
-            border-radius: 4px;
-            margin-left: 1rem;
-        }
-
-        .language-switcher a {
-            padding: 0.25rem 0.75rem;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .language-switcher a.active {
-            background: var(--primary-green);
-            color: var(--white);
-        }
-
-        .language-switcher a:hover:not(.active) {
-            background: var(--primary-green);
-            color: var(--white);
-            opacity: 0.8;
-        }
-
-        /* ============================================
-           MENÚ HAMBURGUESA
-           ============================================ */
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: var(--bg-primary);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 999;
-            animation: slideDown 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        html.dark-mode .mobile-menu {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .mobile-menu ul {
+        .nav-links {
+            display: flex;
+            gap: 16px;
             list-style: none;
-            padding: 1rem 0;
         }
 
-        .mobile-menu li {
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .mobile-menu a {
-            display: block;
-            padding: 1rem 1.5rem;
-            color: var(--text-primary);
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text-muted);
             text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             font-weight: 500;
-            transition: all 0.3s ease;
         }
-
-        .mobile-menu a:hover {
-            background: var(--bg-secondary);
-            padding-left: 2rem;
-            color: var(--primary-green);
-        }
-
-        .mobile-menu li:last-child {
-            border-bottom: none;
-        }
-
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
 
         .hero {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(168, 197, 184, 0.15) 100%);
-            padding-top: 120px;
-            padding-bottom: 4rem;
+            background: #2d4a3e;
+            padding: 64px 28px 56px;
+            position: relative;
+            overflow: hidden;
             text-align: center;
-            animation: fadeIn 0.8s ease;
         }
 
         html.dark-mode .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, rgba(107, 148, 120, 0.1) 100%);
+            background: #0f1513;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 20% 80%, rgba(90, 138, 116, 0.25) 0%, transparent 55%), radial-gradient(ellipse at 85% 15%, rgba(200, 221, 214, 0.1) 0%, transparent 50%);
         }
 
-        .hero-content h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            animation: slideInUp 0.8s ease 0.2s backwards;
+        .hero-eyebrow,
+        .hero-name,
+        .hero-subtitle,
+        .hero-desc,
+        .hero-cta {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #d6e8e1;
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+
+        .hero-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(42px, 7vw, 72px);
+            font-weight: 300;
+            color: #faf7f2;
+            line-height: 1.05;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-name em {
+            font-style: italic;
+            color: #c8ddd6;
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--primary-green);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            animation: slideInUp 0.8s ease 0.4s backwards;
+            font-size: 14px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #9cc8b4;
+            margin-bottom: 20px;
         }
 
-        .hero-description {
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            color: var(--text-secondary);
+        .hero-desc {
+            font-size: 16px;
             line-height: 1.8;
-            animation: slideInUp 0.8s ease 0.6s backwards;
+            color: rgba(250, 247, 242, 0.9);
+            max-width: 520px;
+            margin: 0 auto 28px;
+            font-weight: 400;
         }
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cta-button {
+        .hero-cta {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary-green);
-            color: var(--white);
+            background: #5a8a74;
+            color: #faf7f2;
+            font-size: 14px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 13px 28px;
+            border-radius: 3px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-            animation: slideInUp 0.8s ease 0.8s backwards;
+            font-weight: 500;
         }
 
-        .cta-button:hover {
-            background: var(--light-green);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(90, 138, 111, 0.2);
+        .section {
+            padding: 56px 28px;
         }
 
-        .cta-button:active {
-            transform: translateY(0);
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--green-soft);
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
-        /* ============================================
-           SECCIÓN SOBRE LUCÍA
-           ============================================ */
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 38px;
+            font-weight: 400;
+            color: var(--green-deep);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .section-title em {
+            font-style: italic;
+        }
+
+        .divider-line {
+            width: 40px;
+            height: 1px;
+            background: var(--green-soft);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
 
         #sobre {
-            background: var(--bg-primary);
+            background: var(--white);
         }
 
-        .sobre-content {
-            padding: 3rem 0;
-        }
-
-        .sobre-content h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-                opacity: 0;
-            animation: fadeInOnScroll 0.8s ease forwards;
-        }
-
-        .sobre-intro {
-            max-width: 750px;
-            margin: 0 auto 2rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .highlights {
+        .sobre-wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 28px;
         }
 
-        .highlight-item {
-            padding: 1.5rem;
-            background: var(--bg-secondary);
+        .sobre-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text);
+            font-weight: 400;
+            max-width: 760px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
             border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .stat-cell {
+            background: var(--cream);
+            padding: 20px 14px;
             text-align: center;
-            border-left: 4px solid var(--primary-green);
-            opacity: 0;
-            animation: fadeInOnScroll 0.8s ease forwards;
-            transition: background-color 0.3s ease;
         }
 
-        .highlight-item:nth-child(1) {
-            animation-delay: 0.2s;
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--green-deep);
+            line-height: 1;
+            margin-bottom: 4px;
         }
 
-        .highlight-item:nth-child(2) {
-            animation-delay: 0.4s;
+        .stat-desc {
+            font-size: 13px;
+            color: var(--text-soft);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            font-weight: 500;
         }
-
-        .highlight-item:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .highlight-item:nth-child(4) {
-            animation-delay: 0.8s;
-        }
-
-        .highlight-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            font-family: 'Lora', serif;
-        }
-
-        .highlight-text {
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
-
-        /* ============================================
-           SECCIÓN SERVICIOS
-           ============================================ */
 
         #servicios {
-            background: linear-gradient(135deg, rgba(168, 197, 184, 0.1) 0%, var(--bg-secondary) 100%);
+            background: var(--green-tint);
         }
 
-        html.dark-mode #servicios {
-            background: linear-gradient(135deg, rgba(107, 148, 120, 0.1) 0%, #1a1a1a 100%);
-        }
-
-        .services-grid {
+        .service-cards {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 12px;
         }
 
         .service-card {
-            background: var(--bg-primary);
-            padding: 2rem;
+            background: var(--white);
+            border: 1px solid var(--border);
             border-radius: 8px;
-            text-align: center;
-            border-top: 4px solid var(--primary-green);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInOnScroll 0.8s ease forwards;
-        }
-
-        .service-card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .service-card:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .service-card:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(90, 138, 111, 0.15);
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            height: 60px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--green-tint);
+            border: 1px solid var(--green-pale);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--bg-secondary);
-            border-radius: 50%;
-            margin-left: auto;
-            margin-right: auto;
-            width: 60px;
-            transition: background-color 0.3s ease;
+            flex-shrink: 0;
+            color: var(--green-soft);
         }
 
-        .service-icon::before {
-            font-size: 1.5rem;
+        .service-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--green-deep);
+            margin-bottom: 5px;
         }
 
-        .service-card:nth-child(1) .service-icon::before {
-            content: "🏥";
+        .service-desc {
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--text);
+            font-weight: 400;
         }
-
-        .service-card:nth-child(2) .service-icon::before {
-            content: "💻";
-        }
-
-        .service-card:nth-child(3) .service-icon::before {
-            content: "📋";
-        }
-
-        .service-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        /* ============================================
-           SECCIÓN PROCESO
-           ============================================ */
 
         #proceso {
-            background: var(--bg-primary);
+            background: var(--white);
         }
 
-        .proceso-content h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .process-step {
+        .steps {
             display: flex;
-            gap: 1.5rem;
-            opacity: 0;
-            animation: fadeInOnScroll 0.8s ease forwards;
+            flex-direction: column;
         }
 
-        .process-step:nth-child(1) {
-            animation-delay: 0.2s;
+        .step {
+            display: flex;
+            gap: 18px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--cream3);
         }
 
-        .process-step:nth-child(2) {
-            animation-delay: 0.4s;
+        .step:last-child {
+            border-bottom: none;
         }
 
-        .process-step:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .step-number {
+        .step-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--green-pale);
+            line-height: 1;
+            width: 40px;
             flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-green);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            font-family: 'Lora', serif;
         }
 
-        .step-content h3 {
-            margin-bottom: 0.5rem;
+        .step-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--green-deep);
+            margin-bottom: 5px;
         }
 
-        .step-content p {
-            font-size: 0.95rem;
-            margin: 0;
-            color: var(--text-secondary);
+        .step-desc {
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--text);
+            font-weight: 400;
         }
-
-        .step-divider {
-            text-align: center;
-            font-size: 1.5rem;
-            color: var(--soft-green);
-            margin-bottom: 1rem;
-        }
-
-        /* ============================================
-           SECCIÓN CONTACTO
-           ============================================ */
 
         #contacto {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
-            color: var(--white);
+            background: #2d4a3e;
             text-align: center;
-            transition: background 0.3s ease;
         }
 
         html.dark-mode #contacto {
-            background: linear-gradient(135deg, #4a6d59 0%, #5a7d6a 100%);
+            background: #121816;
         }
 
-        #contacto h2 {
-            color: var(--white);
+        #contacto .section-label {
+            color: #c8ddd6;
+            opacity: 0.7;
         }
 
-        .contact-intro {
-            font-size: 1.05rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-            color: rgba(255, 255, 255, 0.9);
+        #contacto .section-title {
+            color: #faf7f2;
         }
 
-        .contact-methods {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            max-width: 500px;
+        #contacto .divider-line {
+            margin: 0 auto 20px;
+        }
+
+        .contacto-desc {
+            font-size: 16px;
+            color: rgba(250, 247, 242, 0.9);
+            line-height: 1.7;
+            font-weight: 400;
+            margin: 0 auto 28px;
+            max-width: 620px;
+        }
+
+        .contact-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 760px;
+            width: 100%;
             margin: 0 auto;
         }
 
-        .contact-method {
-            display: inline-flex;
+        .contact-btn {
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
-            padding: 1.2rem;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
+            gap: 10px;
+            padding: 13px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 0.08em;
             text-decoration: none;
-            color: var(--white);
             font-weight: 500;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            opacity: 0;
-            animation: fadeInOnScroll 0.8s ease forwards;
-        }
-
-        .contact-method:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .contact-method:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .contact-method:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .contact-method:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .contact-method::before {
-            font-size: 1.3rem;
-        }
-
-        .contact-method:nth-child(1)::before {
-            content: "💬";
-        }
-
-        .contact-method:nth-child(2)::before {
-            content: "📷";
-        }
-
-        .contact-method:nth-child(3)::before {
-            content: "✉️";
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-
-        footer {
-            background: #1a1a1a;
-            color: var(--white);
+            text-transform: uppercase;
+            white-space: normal;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
         }
 
-        html.dark-mode footer {
-            background: #0a0a0a;
+        .contact-btn.whatsapp {
+            background: #5a8a74;
+            color: #faf7f2;
         }
 
-        footer p {
-            color: var(--white);
-            margin: 0.5rem 0;
+        .contact-btn.instagram {
+            background: transparent;
+            color: #faf7f2;
+            border: 1px solid rgba(250, 247, 242, 0.25);
+            text-transform: none;
+            letter-spacing: 0.03em;
         }
 
-        /* ============================================
-           ANIMACIÓN AL SCROLL
-           ============================================ */
+        .contact-btn.email {
+            background: transparent;
+            color: rgba(250, 247, 242, 0.85);
+            border: 1px solid rgba(250, 247, 242, 0.35);
+            font-size: 14px;
+            text-transform: none;
+            letter-spacing: 0.03em;
+        }
 
-        @keyframes fadeInOnScroll {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        .footer {
+            background: #1e3329;
+            padding: 20px 28px;
+            text-align: center;
+        }
+
+        html.dark-mode .footer {
+            background: #0e1412;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: rgba(250, 247, 242, 0.72);
+            letter-spacing: 0.06em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 700px) {
+            .nav-links {
+                display: none;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .nav-logo {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 44px 28px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .service-name {
+                font-size: 17px;
+            }
+
+            .step-title {
+                font-size: 17px;
+            }
+
+            .hero-desc,
+            .sobre-text,
+            .service-desc,
+            .step-desc,
+            .contacto-desc {
+                font-size: 15px;
+            }
+
+            .section-label {
+                font-size: 11px;
+            }
+
+            .nav-right {
+                gap: 8px;
+            }
+
+            .theme-toggle {
+                width: 38px;
+                height: 38px;
+                font-size: 17px;
+            }
+
+            .stat-num {
+                font-size: 26px;
+            }
+
+            .step-num {
+                font-size: 36px;
+                width: 32px;
             }
         }
 
-        /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+        @media (min-width: 900px) {
+            body {
+                padding: 34px 24px;
             }
 
-            h2 {
-                font-size: 1.6rem;
+            .site {
+                border-radius: 12px;
+                overflow: hidden;
+                border: 1px solid var(--border);
             }
 
-            h3 {
-                font-size: 1.25rem;
+            .navbar,
+            .section {
+                padding-left: 48px;
+                padding-right: 48px;
             }
 
-            section {
-                padding: 2rem 0;
-            }
-
-            .hero {
-                padding-top: 100px;
-                padding-bottom: 2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .highlights {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                gap: 1.5rem;
+            .service-cards {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
 
             .service-card {
-                padding: 1.5rem;
+                height: 100%;
             }
 
-            .process-steps {
-                gap: 2rem;
+            .contact-btns {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 12px;
             }
-
-            .step-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            h3 {
-                font-size: 1.1rem;
-            }
-
-            section {
-                padding: 1.5rem 0;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .cta-button {
-                padding: 0.85rem 2rem;
-                font-size: 0.95rem;
-            }
-
-            .sobre-intro {
-                font-size: 0.95rem;
-            }
-
-            .highlight-item {
-                padding: 1.25rem;
-            }
-
-            .highlight-number {
-                font-size: 2rem;
-            }
-
-            .service-card {
-                padding: 1.25rem;
-            }
-
-            .service-icon {
-                width: 50px;
-                height: 50px;
-            }
-
-            .process-step {
-                gap: 1rem;
-            }
-
-            .step-number {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-
-            .step-content h3 {
-                font-size: 1rem;
-            }
-
-            .step-content p {
-                font-size: 0.9rem;
-            }
-
-            .contact-method {
-                padding: 1rem;
-                font-size: 0.95rem;
-            }
-
-            .contact-method::before {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* ============================================
-           ANIMACIÓN SMOOTH SCROLL
-           ============================================ */
-
-        .smooth-scroll {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- ============================================
-         HEADER Y NAVEGACIÓN
-         ============================================ -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Lucía Fernández</div>
-                <div style="display: flex; gap: 1rem; align-items: center;">
-                    <div class="language-switcher">
-                        <a href="index.html" class="active">ES</a>
-                        <a href="index-en.html">EN</a>
-                    </div>
-                    <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
-                        <span>🌙</span>
-                    </button>
-                    <button class="nav-toggle" aria-label="Toggle navigation">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Menú Hamburguesa -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#sobre">Sobre Lucía</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#proceso">Cómo Trabajamos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </div>
-
-    <!-- ============================================
-         HERO SECTION
-         ============================================ -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Lucía Fernández</h1>
-                <p class="hero-subtitle">Nutricionista Clínica y Deportiva</p>
-                <p class="hero-description">
-                    Te ayudo a alcanzar tus objetivos de salud mediante un plan de alimentación personalizado, diseñado especialmente para vos. Trabajamos juntas de forma presencial o por videollamada, desde Yerba Buena, Tucumán.
-                </p>
-                <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="cta-button">Consulta por WhatsApp</a>
+    <div class="site">
+        <nav class="navbar">
+            <span class="nav-logo">Lucía Fernández</span>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#proceso">Proceso</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button id="themeToggle" class="theme-toggle" aria-label="Cambiar modo oscuro" type="button">☀️</button>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- ============================================
-         SECCIÓN SOBRE LUCÍA
-         ============================================ -->
-    <section id="sobre">
-        <div class="container">
-            <div class="sobre-content">
-                <h2>Sobre Lucía</h2>
-                <div class="sobre-intro">
-                    <p>
-                        Soy nutricionista clínica y deportiva con una pasión genuina por acompañar a mis pacientes en su camino hacia el bienestar. Mi enfoque es humanizado y flexible: entiendo que cada cuerpo es diferente y que no existen dietas mágicas, sino estrategias personalizadas que se adaptan a tu vida.
-                    </p>
-                    <p>
-                        Creo en la alimentación consciente, en celebrar los pequeños avances y en construir hábitos que duren en el tiempo. No vengo a juzgarte por lo que comés, sino a empoderarte con herramientas que funcionen para vos.
-                    </p>
+        <section class="hero">
+            <div class="hero-eyebrow">Nutricionista · Tucumán, Argentina</div>
+            <h1 class="hero-name">Lucía<br><em>Fernández</em></h1>
+            <div class="hero-subtitle">Clínica &amp; Deportiva</div>
+            <p class="hero-desc">Te ayudo a alcanzar tus objetivos de salud mediante un plan de alimentación personalizado. Presencial en Yerba Buena o por videollamada.</p>
+            <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="hero-cta" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+        </section>
+
+        <section class="section" id="sobre">
+            <div class="sobre-wrap">
+                <div>
+                    <div class="section-label">Quién soy</div>
+                    <h2 class="section-title">Sobre <em>Lucía</em></h2>
+                    <div class="divider-line"></div>
+                    <p class="sobre-text">Soy nutricionista clínica y deportiva con una pasión genuina por acompañar a mis pacientes en su camino hacia el bienestar. Mi enfoque es humanizado y flexible: entiendo que cada cuerpo es diferente y que no existen dietas mágicas, sino estrategias personalizadas que se adaptan a tu vida.</p>
                 </div>
-
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-number">10+</div>
-                        <div class="highlight-text">Años de experiencia</div>
+                <div class="stats-row">
+                    <div class="stat-cell">
+                        <div class="stat-num">10+</div>
+                        <div class="stat-desc">Años de experiencia</div>
                     </div>
-                    <div class="highlight-item">
-                        <div class="highlight-number">500+</div>
-                        <div class="highlight-text">Pacientes acompañados</div>
+                    <div class="stat-cell">
+                        <div class="stat-num">500+</div>
+                        <div class="stat-desc">Pacientes acompañados</div>
                     </div>
-                    <div class="highlight-item">
-                        <div class="highlight-number">100%</div>
-                        <div class="highlight-text">Dedicación personalizada</div>
+                    <div class="stat-cell">
+                        <div class="stat-num">100%</div>
+                        <div class="stat-desc">Dedicación personalizada</div>
                     </div>
-                    <div class="highlight-item">
-                        <div class="highlight-number">24/7</div>
-                        <div class="highlight-text">Disponible para vos</div>
+                    <div class="stat-cell">
+                        <div class="stat-num">24/7</div>
+                        <div class="stat-desc">Disponible para vos</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================
-         SECCIÓN SERVICIOS
-         ============================================ -->
-    <section id="servicios">
-        <div class="container">
-            <h2 style="text-align: center;">Mis Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"></div>
-                    <h3>Consulta Presencial</h3>
-                    <p>Te atiendo en Yerba Buena para una evaluación completa, seguimiento detallado y apoyo cara a cara.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"></div>
-                    <h3>Consulta Online</h3>
-                    <p>Videoconferencia flexible desde cualquier lugar. Ideal si preferís comodidad o estás fuera de Tucumán.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"></div>
-                    <h3>Plan Personalizado</h3>
-                    <p>Plan de alimentación diseñado especialmente para vos, con seguimiento continuo y ajustes según tu progreso.</p>
-                </div>
+        <section class="section" id="servicios">
+            <div class="section-label">Lo que ofrezco</div>
+            <h2 class="section-title">Mis <em>Servicios</em></h2>
+            <div class="divider-line"></div>
+            <div class="service-cards">
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="service-name">Consulta Presencial</div>
+                        <div class="service-desc">Te atiendo en Yerba Buena para una evaluación completa, seguimiento detallado y apoyo cara a cara.</div>
+                    </div>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="service-name">Consulta Online</div>
+                        <div class="service-desc">Videoconferencia flexible desde cualquier lugar. Ideal si preferís comodidad o estás fuera de Tucumán.</div>
+                    </div>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="service-name">Plan Personalizado</div>
+                        <div class="service-desc">Plan de alimentación diseñado especialmente para vos, con seguimiento continuo y ajustes según tu progreso.</div>
+                    </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================
-         SECCIÓN PROCESO
-         ============================================ -->
-    <section id="proceso">
-        <div class="container">
-            <div class="proceso-content">
-                <h2>Cómo Trabajamos</h2>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Evaluación Inicial</h3>
-                            <p>Nos conocemos, conversamos sobre tus objetivos, tu historial de salud y tu relación con la comida. Así entiendo bien qué necesitás.</p>
-                        </div>
+        <section class="section" id="proceso">
+            <div class="section-label">El camino</div>
+            <h2 class="section-title">Cómo <em>Trabajamos</em></h2>
+            <div class="divider-line"></div>
+            <div class="steps">
+                <article class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <div class="step-title">Evaluación Inicial</div>
+                        <div class="step-desc">Nos conocemos, conversamos sobre tus objetivos, tu historial de salud y tu relación con la comida.</div>
                     </div>
-
-                    <div style="text-align: center; color: var(--soft-green); font-size: 1.5rem; margin: -1rem 0;">↓</div>
-
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Plan Personalizado</h3>
-                            <p>Diseño un plan de alimentación realista, flexible y adaptado a tu estilo de vida. No dietas restrictivas, sino estrategias que funcionan.</p>
-                        </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <div class="step-title">Plan Personalizado</div>
+                        <div class="step-desc">Diseño un plan de alimentación realista, flexible y adaptado a tu estilo de vida. Sin dietas restrictivas.</div>
                     </div>
-
-                    <div style="text-align: center; color: var(--soft-green); font-size: 1.5rem; margin: -1rem 0;">↓</div>
-
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Seguimiento y Ajuste</h3>
-                            <p>Nos encontramos regularmente para revisar tu progreso, celebrar tus logros y ajustar el plan si es necesario.</p>
-                        </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <div class="step-title">Seguimiento y Ajuste</div>
+                        <div class="step-desc">Nos encontramos regularmente para revisar tu progreso, celebrar tus logros y ajustar el plan.</div>
                     </div>
-                </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================
-         SECCIÓN CONTACTO
-         ============================================ -->
-    <section id="contacto">
-        <div class="container">
-            <h2>Conectemos</h2>
-            <p class="contact-intro">
-                ¿Listo para empezar tu cambio? Contactame a través del medio que prefieras y agendamos tu consulta inicial.
-            </p>
-            <div class="contact-methods">
-                <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="contact-method">
+        <section class="section" id="contacto">
+            <div class="section-label">Hablemos</div>
+            <h2 class="section-title">Conectemos</h2>
+            <div class="divider-line"></div>
+            <p class="contacto-desc">¿Lista para empezar tu cambio? Contactame a través del medio que prefieras y agendamos tu consulta inicial.</p>
+            <div class="contact-btns">
+                <a href="https://wa.me/+5493816000000?text=Hola%20Lucía,%20me%20gustaría%20agendar%20una%20consulta" class="contact-btn whatsapp" target="_blank" rel="noopener noreferrer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     WhatsApp
                 </a>
-                <a href="https://instagram.com/luciafernandez.nutricion" target="_blank" class="contact-method">
-                    Instagram
+                <a href="https://instagram.com/luciafernandez.nutricion" class="contact-btn instagram" target="_blank" rel="noopener noreferrer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    @luciafernandez.nutricion
                 </a>
-                <a href="mailto:lucia@nutricionista.com" class="contact-method">
-                    Email
+                <a href="mailto:lucia@nutricionista.com" class="contact-btn email">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    lucia@nutricionista.com
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
-    <footer>
-        <p>&copy; 2026 Lucía Fernández. Nutricionista Clínica y Deportiva</p>
-        <p>Yerba Buena, Tucumán, Argentina</p>
-    </footer>
+        <footer class="footer">
+            <div class="footer-text">© 2026 Lucía Fernández · Nutricionista Clínica y Deportiva<br>Yerba Buena, Tucumán, Argentina</div>
+        </footer>
+    </div>
 
-    <!-- ============================================
-         SCRIPT - INTERACTIVIDAD Y ANIMACIONES
-         ============================================ -->
     <script>
-        // Elementos del DOM
-        const navToggle = document.querySelector('.nav-toggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const themeToggle = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
-        const contactLinks = document.querySelectorAll('a[href^="#"]');
+        const themeToggle = document.getElementById('themeToggle');
 
-        // Inicializar tema desde localStorage o preferencia del sistema
+        function setTheme(isDark) {
+            htmlElement.classList.toggle('dark-mode', isDark);
+            themeToggle.textContent = isDark ? '🌙' : '☀️';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
         function initTheme() {
             const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                setTheme(true);
+                return;
+            }
+
+            if (savedTheme === 'light') {
+                setTheme(false);
+                return;
+            }
+
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                htmlElement.classList.add('dark-mode');
-                themeToggle.textContent = '☀️';
-            } else {
-                htmlElement.classList.remove('dark-mode');
-                themeToggle.textContent = '🌙';
-            }
+            setTheme(prefersDark);
         }
 
-        // Función para cerrar menú
-        function closeMenu() {
-            navToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
-        }
-
-        // Función para abrir/cerrar menú
-        function toggleMenu() {
-            navToggle.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        }
-
-        // Toggle del tema oscuro/claro
-        themeToggle.addEventListener('click', function() {
-            htmlElement.classList.toggle('dark-mode');
-            const isDarkMode = htmlElement.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-            themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+        themeToggle.addEventListener('click', () => {
+            const isDark = !htmlElement.classList.contains('dark-mode');
+            setTheme(isDark);
         });
 
-        // Inicializar tema al cargar la página
         initTheme();
-
-        // Toggle del menú de navegación
-        navToggle.addEventListener('click', toggleMenu);
-
-        // Cerrar menú cuando se hace click en un link
-        contactLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                closeMenu();
-            });
-        });
-
-        // Cerrar menú cuando se hace click fuera del menú
-        document.addEventListener('click', function(event) {
-            const isClickInsideMenu = mobileMenu.contains(event.target);
-            const isClickOnToggle = navToggle.contains(event.target);
-            
-            if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('active')) {
-                closeMenu();
-            }
-        });
-
-        // Intersection Observer para animaciones al scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.animation = entry.target.style.animation;
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos con animación
-        document.querySelectorAll(
-            '.sobre-content h2, .highlight-item, .service-card, .process-step, .contact-method'
-        ).forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll para enlaces internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Animación de scroll progresivo para elementos
-        window.addEventListener('scroll', function() {
-            const scrollY = window.pageYOffset;
-            
-            // Efecto parallax sutil en hero
-            const hero = document.querySelector('.hero');
-            if (scrollY < window.innerHeight) {
-                hero.style.backgroundPosition = `center ${scrollY * 0.5}px`;
-            }
-        });
     </script>
 </body>
 </html>

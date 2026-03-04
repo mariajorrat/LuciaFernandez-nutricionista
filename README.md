@@ -25,9 +25,7 @@ La página está diseñada para convertir visitantes en pacientes, especialmente
 ```
 Web-nutricionista/
 ├── index.html          # Versión en Español
-├── index-en.html       # English Version
-├── README.md          # Documentación en Español
-└── README-en.md       # English Documentation
+└── README.md          # Documentación en Español
 ```
 
 ## 🎯 Secciones de la Página
@@ -56,14 +54,9 @@ Web-nutricionista/
 - Instagram
 - Email
 
-## 🌐 Idiomas Soportados
+## 🌐 Idioma
 
-La página está disponible en dos idiomas:
-
-- **Español**: `index.html`
-- **English**: `index-en.html`
-
-Ambas versiones tienen un selector de idioma en el header (ES/EN) que permite cambiar entre ellas de manera fácil. Los datos de contacto y estructura son idénticos, solo cambia el contenido del texto.
+La página está disponible en **Español** en `index.html`.
 
 ## 🚀 Cómo Usar
 
@@ -268,5 +261,3 @@ Esta landing page fue creada especialmente para Lucía Fernández.
 **Creado para**: Lucía Fernández - Nutricionista Clínica y Deportiva
 
 ---
-
-**📖 Available in English**: See [README-en.md](README-en.md) for the English version of this documentation.
