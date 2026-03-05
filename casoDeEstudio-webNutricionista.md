@@ -1,6 +1,6 @@
 # 🌿 Lucía Fernández — Nutricionista · Case Study
 
-> **ES** | [EN below ↓](#-case-study-en)
+**ES** | EN below ↓
 
 ---
 
