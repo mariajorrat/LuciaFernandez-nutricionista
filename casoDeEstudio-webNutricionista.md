@@ -23,7 +23,6 @@ Crear una landing page que transmita profesionalismo y confianza, y convierta vi
 - **Sin imágenes** → el diseño funciona puramente con tipografía y color
 - **Tono cercano y humano** → textos en primera persona para generar empatía
 - **WhatsApp como CTA principal** → menor fricción posible para el contacto
-- **Toggle ES/EN** → para alcanzar pacientes hispanohablantes e internacionales
 
 ### Solución técnica
 Un único archivo HTML con CSS y JS embebidos. Sin frameworks, sin dependencias externas (excepto Google Fonts). Desplegado en GitHub Pages de forma gratuita.
@@ -70,7 +69,6 @@ Build a landing page that conveys professionalism and trust, converting Instagra
 - **No images** → design works purely through typography and color
 - **Warm, human tone** → first-person copy to build empathy
 - **WhatsApp as primary CTA** → minimum friction for contact
-- **ES/EN toggle** → to serve both Spanish-speaking and international patients
 
 ### Technical solution
 A single HTML file with embedded CSS and JS. No frameworks, no external dependencies (except Google Fonts). Deployed on GitHub Pages for free.
